@@ -64,6 +64,21 @@ HIDS运行依赖这样一个原理：一个成功的入侵者一般而言都会�
 	4）启动osquery服务
 	$ sudo /etc/init.d/osqueryd restart
 
+## Config ##
+
+	安全监控规则在文件secrity.conf中，可自行修改，其中包含主要几项，query、interval、removed。
+	query: 查询的SQL语句
+	interval: 查询间隔，单位时间为秒
+	removed: 是否生成减少的记录
+	如：
+	"users": {
+      "query" : "select * from users;",
+      "interval" : 3600,
+	  "removed": false
+    }
+	
+
+
 ## Log ##
 
 默认日志结果存储在/var/log/osquer/osqueryd.INFO，其中保存了主机差异变化信息
